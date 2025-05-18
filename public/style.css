@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+  --kick-green: #53fc18;
+  --kick-green-glow: 0 0 16px #53fc18, 0 0 32px #53fc18aa;
+  --kick-dark: #18181b;
+  --kick-darker: #121214;
+  --kick-gray: #232327;
+  --kick-white: #fff;
+  --glass: rgba(35, 35, 39, 0.82);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(135deg, #18181b 0%, #232327 100%);
+  color: var(--kick-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: var(--glass);
+  box-shadow: 0 8px 48px #000a, 0 1.5px 6px #53fc1822;
+  border-radius: 24px;
+  padding: 44px 32px 36px 32px;
+  max-width: 420px;
+  width: 96vw;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  border: 1.5px solid #53fc1822;
+  animation: fadeIn 1s cubic-bezier(.55,0,.1,1);
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--kick-green);
+  text-shadow: var(--kick-green-glow);
+  margin-bottom: 28px;
+  background: linear-gradient(90deg, #53fc18 40%, #a6ffcb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 13px 16px;
+  border-radius: 8px;
+  border: none;
+  background: var(--kick-darker);
+  color: var(--kick-white);
+  font-size: 1.1rem;
+  outline: none;
+  box-shadow: 0 0 0 2px #53fc1800;
+  transition: box-shadow 0.2s;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 0 2px #53fc18;
+}
+
+button {
+  background: var(--kick-green);
+  color: var(--kick-dark);
+  border: none;
+  border-radius: 8px;
+  padding: 13px 22px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--kick-green-glow);
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 1px;
+}
+
+button:hover, button:focus {
+  background: #41c914;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 0 24px #53fc18cc;
+}
+
+#statsContainer {
+  margin-top: 32px;
+  animation: fadeInUp 0.8s cubic-bezier(.55,0,.1,1);
+}
+
+#streamerTitle {
+  font-size: 1.3rem;
+  color: var(--kick-green);
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 12px #53fc1833;
+}
+
+#statsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#statsList li {
+  background: linear-gradient(90deg, #232327 60%, #53fc1811 100%);
+  margin: 12px 0;
+  padding: 18px 18px;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  box-shadow: 0 1.5px 8px #53fc1822;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#statsList li strong {
+  color: var(--kick-green);
+  letter-spacing: 1px;
+  text-shadow: 0 1.5px 8px #53fc1855;
+}
+
+#statsList li:hover {
+  background: linear-gradient(90deg, #53fc18 20%, #232327 100%);
+  color: #18181b;
+  transform: scale(1.025);
+  box-shadow: 0 3px 24px #53fc18bb;
+}
+
+#errorMsg {
+  color: #ff4d4d;
+  background: #232327cc;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-top: 22px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 1.5px 8px #ff4d4d33;
+  animation: shake 0.3s;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes shake {
+  0% { transform: translateX(0);}
+  20% { transform: translateX(-4px);}
+  40% { transform: translateX(4px);}
+  60% { transform: translateX(-4px);}
+  80% { transform: translateX(4px);}
+  100% { transform: translateX(0);}
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    padding: 24px 6vw 24px 6vw;
+    max-width: 98vw;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  #statsList li {
+    padding: 14px 10px;
+    font-size: 1rem;
+  }
+  form {
+    flex-direction: column;
+    gap: 12px;
+  }
+  button {
+    width: 100%;
+  }
+}
