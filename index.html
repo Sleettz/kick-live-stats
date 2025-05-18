@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kick Live Streamer Stats</title>
+  <link rel="stylesheet" href="public/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Kick Live Streamer Stats</h1>
+    <form id="searchForm">
+      <input type="text" id="streamerName" placeholder="Enter Kick streamer name..." required />
+      <button type="submit">Get Live Stats</button>
+    </form>
+    <div id="statsContainer" class="hidden">
+      <h2 id="streamerTitle"></h2>
+      <ul id="statsList"></ul>
+    </div>
+    <div id="errorMsg" class="hidden"></div>
+  </div>
+  <script src="public/script.js"></script>
+</body>
+</html>
